@@ -42,3 +42,21 @@ const g = getGlobal();
 
 // The add-in command functions need to be available in global scope
 g.action = action;
+
+Office.initialize = function () {
+  // Your add-in's initialization logic, if any, goes here.
+};
+
+function trackMessage(event) {
+  const buttonId = event.source.id;
+  const itemId = Office.context.mailbox.item.id;
+  // save this message
+  event.completed();
+}
+
+function test1234() {
+  console.log("test1234");
+}
+
+// Register the function with Office.
+Office.actions.associate("trackMessage", trackMessage);

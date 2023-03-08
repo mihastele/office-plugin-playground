@@ -29,6 +29,7 @@
             <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
           </GetStarted>
           <FunctionFile resid="Commands.Url"/>
+          <!--<FunctionFile resid="Taskpane.Url"/>-->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
               <Group id="CommandsGroup">
@@ -56,6 +57,29 @@
                 </Control>
               </Group>
             </OfficeTab>
+
+            <OfficeMenu xsi:type="ContextMenuText" id="MyOfficeMenu" title="My Custom Menu">
+              <Control xsi:type="Menu" id="Contoso.TestMenu2">
+                <Label resid="MyOfficeMenu.Label"/>
+                <Supertip>
+                  <Title resid="MyOfficeMenu.Label"/>
+                  <Description resid="MyOfficeMenu.Tooltip"/>
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="icon-16" />
+                  <bt:Image size="32" resid="icon-32" />
+                  <bt:Image size="80" resid="icon-80" />
+                </Icon>
+                <Items>
+                  <Item id="MyCustomMenu">
+                    <Label resid="MyCustomMenu.Label"/>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>test1234</FunctionName>
+                    </Action>
+                  </Item>
+                </Items>
+              </Control>
+            </OfficeMenu>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
@@ -75,10 +99,13 @@
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="MyOfficeMenu.Label" DefaultValue="Test your item"/>
+        <bt:String id="MyCustomMenu.Label" DefaultValue="Test your item"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="MyOfficeMenu.Tooltip" DefaultValue="Hello"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
