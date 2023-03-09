@@ -58,5 +58,8 @@ function test1234() {
   console.log("test1234");
 }
 
+// Link the MyCustomMenu Item with executefucntion to the function
+Office.actions.associate("test1234", test1234);
+
 // Register the function with Office.
 Office.actions.associate("trackMessage", trackMessage);

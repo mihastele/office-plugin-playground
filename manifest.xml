@@ -58,29 +58,38 @@
               </Group>
             </OfficeTab>
 
-            <OfficeMenu xsi:type="ContextMenuText" id="MyOfficeMenu" title="My Custom Menu">
-              <Control xsi:type="Menu" id="Contoso.TestMenu2">
-                <Label resid="MyOfficeMenu.Label"/>
-                <Supertip>
-                  <Title resid="MyOfficeMenu.Label"/>
-                  <Description resid="MyOfficeMenu.Tooltip"/>
-                </Supertip>
-                <Icon>
-                  <bt:Image size="16" resid="icon-16" />
-                  <bt:Image size="32" resid="icon-32" />
-                  <bt:Image size="80" resid="icon-80" />
-                </Icon>
-                <Items>
-                  <Item id="MyCustomMenu">
-                    <Label resid="MyCustomMenu.Label"/>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>test1234</FunctionName>
-                    </Action>
-                  </Item>
-                </Items>
-              </Control>
-            </OfficeMenu>
+            
           </ExtensionPoint>
+
+          <!--
+            support for office 2021 or later, commented out
+            https://learn.microsoft.com/en-us/javascript/api/requirement-sets/common/add-in-commands-requirement-sets?view=powerpoint-js-preview
+
+          <ExtensionPoint xsi:type="ContextMenu">
+            <OfficeMenu xsi:type="ContextMenuText" id="MyCustomMenu" title="My Custom Menu">
+                <Control xsi:type="Menu" id="miha1234">
+                  <Label resid="MyOfficeMenu.Label"/>
+                  <Supertip>
+                    <Title resid="MyOfficeMenu.Label"/>
+                    <Description resid="MyOfficeMenu.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="icon-16" />
+                    <bt:Image size="32" resid="icon-32" />
+                    <bt:Image size="80" resid="icon-80" />
+                  </Icon>
+                  <Items>
+                    <Item id="MyCustomMenu">
+                      <Label resid="MyCustomMenu.Label"/>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>test1234</FunctionName>
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
+              </OfficeMenu> 
+          </ExtensionPoint>
+          -->
         </DesktopFormFactor>
       </Host>
     </Hosts>
