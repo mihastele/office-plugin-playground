@@ -20,8 +20,8 @@ export function listenToSelectionChange() {
     // Register the event handler.
     //  context.document.addHandlerAsync(Word.EventType.documentSelectionChanged, log);
 
-    console.log(context.binding);
-    console.log("HIII");
+    // console.log(context.binding);
+    // console.log("HIII");
 
     // console.log(Office);
     // console.log(Office.context);
@@ -44,9 +44,30 @@ export function listenToSelectionChange() {
       }
     );*/
 
-    console.log(Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, log));
+    let selection = context.document.getSelection();
 
-    console.log(Office.context.document.bindings.addFromNamedItemAsync());
+    Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, selectAndDisplay);
+
+    // console.log(Office.context.document.bindings.addFromNamedItemAsync());
+
+    function selectAndDisplay(eventArgs) {
+      // Get the selected text
+      console.log(selection);
+      // var selectedText = selection.getHtml();
+
+      Office.context.document.getSelectedDataAsync(Office.CoercionType.Text, function (result) {
+        if (result.status === Office.AsyncResultStatus.Succeeded) {
+          var search = result.value.trim();
+          if (search.length) {
+            document.getElementById("append-section").innerHTML = search;
+          }
+        } else {
+          console.log("Error: " + result.error.message);
+        }
+      });
+
+      // Display the selected text in the add-in HTML document
+    }
 
     // Function that writes to a div with id='message' on the page.
     function write(message) {
