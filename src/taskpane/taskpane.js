@@ -5,7 +5,7 @@
 
 /* global document, Office, Word */
 
-import { getSelectedText, appendTextToHTML } from "../taskpane/util/demoSelect.js";
+import { getSelectedText, appendTextToHTML, listenToSelectionChange } from "../taskpane/util/demoSelect.js";
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
@@ -13,6 +13,8 @@ Office.onReady((info) => {
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("run").onclick = run;
     document.getElementById("showText").onclick = showText;
+
+    listenToSelectionChange();
   }
 });
 
